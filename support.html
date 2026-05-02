@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サポート — TALKtoDO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --mint: #b8f0d8;
+    --sky: #a8d4f5;
+    --blue-mid: #7ab8e8;
+    --ink: #0f0f0f;
+    --ink-light: #3a3a3a;
+    --muted: #6b7280;
+    --surface: #f8fafb;
+    --border: #e2eaf2;
+    --accent-bg: #eef7ff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #ffffff;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header */
+  header {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 40px 56px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .arrow-svg {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .header-inner {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .logo-mark {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .logo-talk {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+
+  .logo-do {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    text-align: right;
+  }
+
+  .header-text h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .header-meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* Main */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 40px 100px;
+  }
+
+  section { margin-bottom: 52px; }
+
+  .section-label {
+    display: inline-block;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #c8f5e4, #b8d8f5);
+    color: var(--ink);
+    padding: 3px 10px 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  section h2 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  section p {
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+
+  /* App intro */
+  .app-intro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .app-intro p { margin-bottom: 8px; font-size: 14.5px; color: var(--ink-light); }
+  .app-intro p:last-child { margin-bottom: 0; }
+
+  /* Steps */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a8efce, #90c8f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink);
+    margin-top: 1px;
+  }
+
+  .step-text {
+    font-size: 14.5px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    padding-top: 3px;
+  }
+
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 20px;
+    background: #f0f8ff;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-q-badge {
+    flex-shrink: 0;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #1a6dbf;
+    margin-top: 1px;
+  }
+
+  .faq-q-text {
+    font-weight: 500;
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .faq-a {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 20px;
+    background: #fff;
+  }
+
+  .faq-a-badge {
+    flex-shrink: 0;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .faq-a-text {
+    font-size: 14.5px;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* Lists */
+  ul.dot-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.dot-list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+    font-size: 14.5px;
+  }
+
+  ul.dot-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7de8c0, #7ab8e8);
+  }
+
+  /* Info card */
+  .info-card {
+    background: var(--accent-bg);
+    border-left: 3px solid var(--blue-mid);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .info-card p { margin-bottom: 0; font-size: 14px; color: var(--ink-light); }
+
+  /* Contact box */
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+
+  .contact-box p { margin-bottom: 6px; color: var(--ink-light); font-size: 14.5px; }
+  .contact-box a { color: #1a6dbf; text-decoration: none; }
+  .contact-box a:hover { text-decoration: underline; }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--mint), var(--sky), transparent);
+    margin: 0 0 52px;
+    border: none;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  footer a { color: #1a6dbf; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header { padding: 40px 24px 36px; }
+    main { padding: 40px 24px 80px; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .logo-talk, .logo-do { font-size: 22px; }
+    .header-text h1 { font-size: 21px; }
+    .arrow-svg { display: none; }
+    .contact-box { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="arrow-svg" width="420" height="110" viewBox="0 0 420 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="arrowGrad" x1="0" y1="0" x2="420" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#b8f0d8"/>
+        <stop offset="100%" stop-color="#a8c8f0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="0,15 380,15 420,55 380,95 0,95 40,55" fill="url(#arrowGrad)"/>
+  </svg>
+
+  <div class="header-inner">
+    <div class="logo-mark">
+      <span class="logo-talk">Talk</span>
+      <span class="logo-do">Do</span>
+    </div>
+    <div class="header-text">
+      <h1>サポート</h1>
+      <p class="header-meta">TALKtoDO &nbsp;·&nbsp; ご利用ガイド &amp; お問い合わせ</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- アプリについて -->
+  <section>
+    <div class="section-label">アプリについて</div>
+    <h2>TALKtoDO とは</h2>
+    <div class="app-intro">
+      <p>TALKtoDO は、スクリーンショットを共有するだけで AI が内容を解析し、予定や ToDo を自動で整理するアプリです。</p>
+      <p>チャット、メモ、SNS などの情報から文脈を理解して予定・タスクを抽出し、カレンダーやタスクリストに簡単に追加できます。</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 使い方 -->
+  <section>
+    <div class="section-label">使い方</div>
+    <h2>主な使い方</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">スクリーンショットを撮影する</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">共有メニューから「TALKtoDO」を選択する</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">自動解析された予定・ToDo を確認する</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">カレンダー登録またはタスク保存をする</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- FAQ -->
+  <section>
+    <div class="section-label">よくある質問</div>
+    <h2>FAQ</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q.</span>
+          <span class="faq-q-text">どんな画像でも解析できますか？</span>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-badge">A.</span>
+          <span class="faq-a-text">テキスト情報が含まれている画像（チャット、メモ、メールなど）に対応しています。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q.</span>
+          <span class="faq-q-text">カレンダーには自動で追加されますか？</span>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-badge">A.</span>
+          <span class="faq-a-text">いいえ。ユーザーの確認および操作後に追加されます。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q.</span>
+          <span class="faq-q-text">個人情報は安全ですか？</span>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-badge">A.</span>
+          <span class="faq-a-text">画像は解析のため外部 AI に送信される場合があります。機密情報を含む場合は、事前にトリミングすることを推奨します。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-badge">Q.</span>
+          <span class="faq-q-text">データは保存されますか？</span>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-badge">A.</span>
+          <span class="faq-a-text">解析結果や ToDo 情報は保存されますが、スクリーンショット画像自体はサーバーには保存されません。</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 対応環境 -->
+  <section>
+    <div class="section-label">対応環境</div>
+    <h2>動作環境</h2>
+    <ul class="dot-list">
+      <li>iOS 最新版推奨</li>
+      <li>インターネット接続が必要です</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 不具合 -->
+  <section>
+    <div class="section-label">不具合について</div>
+    <h2>うまく動かない場合</h2>
+    <p>アプリが正常に動作しない場合は、以下をお試しください。</p>
+    <ul class="dot-list">
+      <li>アプリの再起動</li>
+      <li>端末の再起動</li>
+      <li>アプリの最新版へのアップデート</li>
+    </ul>
+    <div class="info-card">
+      <p>解決しない場合は、下記のお問い合わせ先までご連絡ください。状況をできるだけ詳しくお知らせいただけると、迅速に対応できます。</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- お問い合わせ -->
+  <section>
+    <div class="section-label">お問い合わせ</div>
+    <h2>ご連絡先</h2>
+    <p>ご質問・不具合報告・ご要望などは、以下までお気軽にご連絡ください。</p>
+    <div class="contact-box">
+      <p><strong>運営者：</strong>山本憲吾</p>
+      <p><strong>メール：</strong><a href="mailto:yamayamak40@yahoo.co.jp">yamayamak40@yahoo.co.jp</a></p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- プライバシー -->
+  <section>
+    <div class="section-label">プライバシーについて</div>
+    <h2>データの取り扱い</h2>
+    <p>本アプリのデータの取り扱いについては、プライバシーポリシーをご確認ください。</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 今後の改善 -->
+  <section>
+    <div class="section-label">今後の改善について</div>
+    <h2>継続的な改善</h2>
+    <p>TALKtoDO は継続的に改善を行っています。ご意見・ご要望はすべて開発の参考にさせていただきます。</p>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 TALKtoDO. All rights reserved. &nbsp;·&nbsp;
+  <a href="talkdo-privacy-policy.html">プライバシーポリシー</a>
+</footer>
+
+</body>
+</html>
