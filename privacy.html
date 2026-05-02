@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー — TALKtoDO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --mint: #b8f0d8;
+    --sky: #a8d4f5;
+    --blue-mid: #7ab8e8;
+    --ink: #0f0f0f;
+    --ink-light: #3a3a3a;
+    --muted: #6b7280;
+    --surface: #f8fafb;
+    --border: #e2eaf2;
+    --accent-bg: #eef7ff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #ffffff;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header */
+  header {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 40px 56px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-arrow {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    width: 480px;
+    height: 120px;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  .header-inner {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .logo-mark {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .logo-talk {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+
+  .logo-do {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    text-align: right;
+  }
+
+  .header-text { flex: 1; }
+
+  .header-text h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .header-meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* Arrow graphic */
+  .arrow-svg {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* Main layout */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 40px 100px;
+  }
+
+  /* Section */
+  section {
+    margin-bottom: 52px;
+  }
+
+  .section-num {
+    display: inline-block;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #c8f5e4, #b8d8f5);
+    color: var(--ink);
+    padding: 3px 10px 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  section h2 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  section p {
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+
+  /* Sub-section headings */
+  .sub-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: none;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  /* Lists */
+  ul.dot-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.dot-list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+    font-size: 14.5px;
+  }
+
+  ul.dot-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7de8c0, #7ab8e8);
+  }
+
+  /* Info card */
+  .info-card {
+    background: var(--accent-bg);
+    border-left: 3px solid var(--blue-mid);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .info-card p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  /* Warning card */
+  .warn-card {
+    background: #fffbf0;
+    border-left: 3px solid #e0a020;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .warn-card p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #5a4010;
+  }
+
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .service-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+
+  .service-chip .service-name {
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .service-chip .service-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--mint), var(--sky), transparent);
+    margin: 0 0 52px;
+    border: none;
+  }
+
+  /* Contact */
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+
+  .contact-box p { margin-bottom: 6px; color: var(--ink-light); font-size: 14.5px; }
+  .contact-box a { color: #1a6dbf; text-decoration: none; }
+  .contact-box a:hover { text-decoration: underline; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header { padding: 40px 24px 36px; }
+    main { padding: 40px 24px 80px; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .logo-talk, .logo-do { font-size: 22px; }
+    .header-text h1 { font-size: 21px; }
+    .arrow-svg { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <!-- Background arrow decoration matching app icon -->
+  <svg class="arrow-svg" width="420" height="110" viewBox="0 0 420 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="arrowGrad" x1="0" y1="0" x2="420" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#b8f0d8"/>
+        <stop offset="100%" stop-color="#a8c8f0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="0,15 380,15 420,55 380,95 0,95 40,55" fill="url(#arrowGrad)"/>
+  </svg>
+
+  <div class="header-inner">
+    <div class="logo-mark">
+      <span class="logo-talk">Talk</span>
+      <span class="logo-do">Do</span>
+    </div>
+    <div class="header-text">
+      <h1>プライバシーポリシー</h1>
+      <p class="header-meta">TALKtoDO &nbsp;·&nbsp; 最終更新日：2026年5月2日</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1 -->
+  <section>
+    <div class="section-num">01</div>
+    <h2>取得する情報</h2>
+    <p>本アプリは、以下の情報を取得・送信する場合があります。</p>
+
+    <p class="sub-label">（1）ユーザーが提供する情報</p>
+    <ul class="dot-list">
+      <li>ユーザーが選択または共有したスクリーンショット画像</li>
+      <li>画像に含まれるテキスト、予定、タスク、人物名、場所、日時などの情報</li>
+      <li>解析結果として抽出された予定・ToDo情報</li>
+    </ul>
+
+    <p class="sub-label">（2）アプリ利用に伴い取得される情報</p>
+    <ul class="dot-list">
+      <li>アプリの表示言語およびロケール情報</li>
+      <li>Firebase 匿名認証 ID</li>
+      <li>端末ごとのインストール ID</li>
+    </ul>
+
+    <p class="sub-label">（3）課金・利用状況に関する情報</p>
+    <ul class="dot-list">
+      <li>クレジット残高</li>
+      <li>購入商品 ID、取引 ID</li>
+      <li>解析枚数、処理日時</li>
+      <li>利用した AI プロバイダ</li>
+      <li>概算トークン数・コスト等の運用ログ</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 2 -->
+  <section>
+    <div class="section-num">02</div>
+    <h2>利用目的</h2>
+    <p>取得した情報は、以下の目的で利用されます。</p>
+    <ul class="dot-list">
+      <li>スクリーンショットの解析</li>
+      <li>予定および ToDo の抽出</li>
+      <li>カレンダー追加機能およびタスク管理機能の提供</li>
+      <li>クレジット管理および購入処理</li>
+      <li>不正利用の防止</li>
+      <li>障害調査およびサービス改善</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 3 -->
+  <section>
+    <div class="section-num">03</div>
+    <h2>情報の保存および管理</h2>
+    <ul class="dot-list">
+      <li>解析結果、履歴、ToDo、クレジット情報は Firebase Firestore 上に保存されます</li>
+      <li>スクリーンショット画像は解析のため外部 AI API へ送信されますが、本アプリのサーバー上には保存されません</li>
+      <li>共有シート経由の画像は端末内または App Group 領域に一時保存され、解析後に削除されます</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 4 -->
+  <section>
+    <div class="section-num">04</div>
+    <h2>第三者サービスの利用</h2>
+    <p>本アプリは、以下の第三者サービスを利用します。必要な範囲で情報が送信される場合があります。</p>
+
+    <div class="services-grid">
+      <div class="service-chip">
+        <div class="service-name">Firebase / Google Cloud</div>
+        <div class="service-desc">認証、データベース、Cloud Functions、ログ管理</div>
+      </div>
+      <div class="service-chip">
+        <div class="service-name">OpenAI</div>
+        <div class="service-desc">画像解析</div>
+      </div>
+      <div class="service-chip">
+        <div class="service-name">Gemini / Google AI</div>
+        <div class="service-desc">画像解析に利用される場合があります</div>
+      </div>
+      <div class="service-chip">
+        <div class="service-name">Apple</div>
+        <div class="service-desc">App Store 決済、カレンダー連携、アプリ配信</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 5 -->
+  <section>
+    <div class="section-num">05</div>
+    <h2>個人情報および機密情報の取り扱い</h2>
+    <p>本アプリは、ユーザーが共有したスクリーンショットを解析するため、画像内に含まれる個人情報や機密情報も処理対象となる可能性があります。</p>
+
+    <div class="warn-card">
+      <p>・不要な個人情報や機密情報は事前にトリミングまたは除外してください<br>
+      ・共有された情報は解析のため外部 AI サービスに送信される場合があります</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 6 -->
+  <section>
+    <div class="section-num">06</div>
+    <h2>カレンダー連携について</h2>
+    <ul class="dot-list">
+      <li>カレンダーへの予定追加は、ユーザーの操作および明示的な権限許可に基づいて行われます</li>
+      <li>ユーザーの許可なしに予定が追加されることはありません</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 7 -->
+  <section>
+    <div class="section-num">07</div>
+    <h2>ユーザー識別について</h2>
+    <ul class="dot-list">
+      <li>本アプリはアカウント登録を必要としません</li>
+      <li>Firebase 匿名認証 ID および端末 ID によりユーザーを識別します</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 8 -->
+  <section>
+    <div class="section-num">08</div>
+    <h2>課金およびクレジット</h2>
+    <p>購入されたクレジットは、画像解析機能の利用に使用されます。</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 9 -->
+  <section>
+    <div class="section-num">09</div>
+    <h2>改訂</h2>
+    <p>本ポリシーは必要に応じて変更される場合があります。重要な変更がある場合は、アプリ内または適切な方法で通知します。</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 10 -->
+  <section>
+    <div class="section-num">10</div>
+    <h2>お問い合わせ</h2>
+    <p>本ポリシーに関するご質問は、以下までご連絡ください。</p>
+    <div class="contact-box">
+      <p><strong>運営者：</strong>山本憲吾</p>
+      <p><strong>メール：</strong><a href="mailto:yamayamak40@yahoo.co.jp">yamayamak40@yahoo.co.jp</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 TALKtoDO. All rights reserved.
+</footer>
+
+</body>
+</html>
