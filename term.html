@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約 — TALKtoDO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --mint: #b8f0d8;
+    --sky: #a8d4f5;
+    --blue-mid: #7ab8e8;
+    --ink: #0f0f0f;
+    --ink-light: #3a3a3a;
+    --muted: #6b7280;
+    --surface: #f8fafb;
+    --border: #e2eaf2;
+    --accent-bg: #eef7ff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #ffffff;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  header {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 40px 56px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .arrow-svg {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .header-inner {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .logo-mark { flex-shrink: 0; display: flex; flex-direction: column; line-height: 1; }
+  .logo-talk { font-family: 'Roboto Slab', serif; font-weight: 900; font-size: 28px; letter-spacing: -0.5px; color: var(--ink); }
+  .logo-do   { font-family: 'Roboto Slab', serif; font-weight: 900; font-size: 28px; letter-spacing: -0.5px; color: var(--ink); text-align: right; }
+
+  .header-text h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .header-meta { font-size: 13px; color: var(--muted); }
+
+  /* ── TOC ── */
+  .toc-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px 16px;
+  }
+
+  .toc-grid a {
+    font-size: 13px;
+    color: #1a6dbf;
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .toc-grid a:hover { text-decoration: underline; }
+
+  .toc-grid a span.toc-num {
+    font-family: 'Roboto Slab', serif;
+    font-size: 11px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 40px 100px;
+  }
+
+  section { margin-bottom: 52px; }
+
+  .section-label {
+    display: inline-block;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #c8f5e4, #b8d8f5);
+    color: var(--ink);
+    padding: 3px 10px 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  section h2 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  section p { color: var(--ink-light); margin-bottom: 12px; }
+  section p:last-child { margin-bottom: 0; }
+
+  /* Numbered paragraphs */
+  .clause-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .clause-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 14.5px;
+    color: var(--ink-light);
+    line-height: 1.75;
+  }
+
+  .clause-num {
+    flex-shrink: 0;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 3px;
+    min-width: 20px;
+  }
+
+  /* Dot list */
+  ul.dot-list { list-style: none; padding: 0; }
+
+  ul.dot-list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+
+  ul.dot-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7de8c0, #7ab8e8);
+  }
+
+  /* Kana list (（1）（2）…) */
+  .kana-list { list-style: none; padding: 0; }
+
+  .kana-list li {
+    display: flex;
+    gap: 8px;
+    font-size: 14.5px;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+    line-height: 1.75;
+  }
+
+  .kana-list li .kn {
+    flex-shrink: 0;
+    color: var(--muted);
+    font-size: 13.5px;
+  }
+
+  /* Info / warn cards */
+  .info-card {
+    background: var(--accent-bg);
+    border-left: 3px solid var(--blue-mid);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--ink-light);
+  }
+
+  /* Contact */
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+
+  .contact-box p { margin-bottom: 6px; font-size: 14.5px; color: var(--ink-light); }
+  .contact-box a { color: #1a6dbf; text-decoration: none; }
+  .contact-box a:hover { text-decoration: underline; }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--mint), var(--sky), transparent);
+    margin: 0 0 52px;
+    border: none;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  footer a { color: #1a6dbf; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header { padding: 40px 24px 36px; }
+    .toc-wrap { padding: 24px; }
+    main { padding: 40px 24px 80px; }
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .logo-talk, .logo-do { font-size: 22px; }
+    .header-text h1 { font-size: 21px; }
+    .arrow-svg { display: none; }
+    .toc-grid { grid-template-columns: 1fr 1fr; }
+    .contact-box { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="arrow-svg" width="420" height="110" viewBox="0 0 420 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="arrowGrad" x1="0" y1="0" x2="420" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#b8f0d8"/>
+        <stop offset="100%" stop-color="#a8c8f0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="0,15 380,15 420,55 380,95 0,95 40,55" fill="url(#arrowGrad)"/>
+  </svg>
+
+  <div class="header-inner">
+    <div class="logo-mark">
+      <span class="logo-talk">Talk</span>
+      <span class="logo-do">Do</span>
+    </div>
+    <div class="header-text">
+      <h1>利用規約</h1>
+      <p class="header-meta">TALKtoDO &nbsp;·&nbsp; 最終更新日：2026年5月2日</p>
+    </div>
+  </div>
+</header>
+
+<!-- 目次 -->
+<nav class="toc-wrap" aria-label="目次">
+  <p class="toc-title">目次</p>
+  <div class="toc-grid">
+    <a href="#art1"><span class="toc-num">第1条</span>適用</a>
+    <a href="#art2"><span class="toc-num">第2条</span>本サービスの内容</a>
+    <a href="#art3"><span class="toc-num">第3条</span>アカウント</a>
+    <a href="#art4"><span class="toc-num">第4条</span>料金・クレジット・課金</a>
+    <a href="#art5"><span class="toc-num">第5条</span>禁止事項</a>
+    <a href="#art6"><span class="toc-num">第6条</span>画像解析・外部 AI サービス</a>
+    <a href="#art7"><span class="toc-num">第7条</span>カレンダー連携</a>
+    <a href="#art8"><span class="toc-num">第8条</span>ユーザーが送信する情報</a>
+    <a href="#art9"><span class="toc-num">第9条</span>知的財産権</a>
+    <a href="#art10"><span class="toc-num">第10条</span>サービスの変更・停止・終了</a>
+    <a href="#art11"><span class="toc-num">第11条</span>利用制限・アカウント停止</a>
+    <a href="#art12"><span class="toc-num">第12条</span>免責</a>
+    <a href="#art13"><span class="toc-num">第13条</span>損害賠償</a>
+    <a href="#art14"><span class="toc-num">第14条</span>プライバシー</a>
+    <a href="#art15"><span class="toc-num">第15条</span>規約の変更</a>
+    <a href="#art16"><span class="toc-num">第16条</span>準拠法・管轄</a>
+    <a href="#art17"><span class="toc-num">第17条</span>お問い合わせ</a>
+  </div>
+</nav>
+
+<main>
+
+  <section>
+    <p>本利用規約（以下「本規約」）は、運営者 山本憲吾（以下「当方」）が提供するモバイルアプリケーション「TALKtoDO」（以下「本アプリ」）の利用条件を定めるものです。ユーザーは、本アプリを利用することにより、本規約に同意したものとみなされます。</p>
+  </section>
+
+  <!-- 第1条 -->
+  <section id="art1">
+    <div class="section-label">第1条</div>
+    <h2>適用</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本規約は、本アプリの利用に関する当方とユーザーとの間の一切の関係に適用されます。</span></li>
+      <li><span class="clause-num">2.</span><span>本アプリに関して、当方が本アプリ内またはウェブサイト上で別途定めるルール、説明、注意事項等は、本規約の一部を構成するものとします。</span></li>
+      <li><span class="clause-num">3.</span><span>本規約の内容と、前項のルール等が異なる場合は、別途明示がない限り、当該ルール等が優先されるものとします。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第2条 -->
+  <section id="art2">
+    <div class="section-label">第2条</div>
+    <h2>本サービスの内容</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリは、ユーザーが選択または共有したスクリーンショット等の画像データを AI 等により解析し、予定、ToDo、タスク、日時、場所等の行動項目の抽出を支援するサービスです。</span></li>
+      <li><span class="clause-num">2.</span><span>本アプリは、解析結果をもとに、ユーザーが予定をカレンダーに追加したり、ToDo として管理したりすることを支援します。</span></li>
+      <li><span class="clause-num">3.</span><span>当方は、解析結果の正確性、完全性、有用性、特定目的への適合性を保証しません。</span></li>
+      <li><span class="clause-num">4.</span><span>ユーザーは、解析結果を利用する際、自ら内容を確認し、必要に応じて修正した上で利用するものとします。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第3条 -->
+  <section id="art3">
+    <div class="section-label">第3条</div>
+    <h2>アカウント</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>ユーザーは、Apple の「Sign in with Apple」等、当方が指定する方法により本アプリを利用します。</span></li>
+      <li><span class="clause-num">2.</span><span>ユーザーは、自己のアカウント情報を適切に管理する責任を負います。</span></li>
+      <li><span class="clause-num">3.</span><span>ユーザーは、自己のアカウントを第三者に利用させ、譲渡し、貸与し、または共有してはなりません。</span></li>
+      <li><span class="clause-num">4.</span><span>ユーザーは、本アプリ内の手続に従い、アカウントの削除を申し出ることができます。</span></li>
+      <li><span class="clause-num">5.</span><span>アカウント削除時、当方は、法令上保存が必要な情報、不正利用防止、購入履歴確認、無料クレジットの重複取得防止等のために必要最小限の情報を保持する場合があります。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第4条 -->
+  <section id="art4">
+    <div class="section-label">第4条</div>
+    <h2>料金・クレジット・課金</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリには、無料で付与される利用枠および、App Store 経由で購入できるクレジット等の有料オプションが含まれる場合があります。</span></li>
+      <li><span class="clause-num">2.</span><span>クレジットは、本アプリ内で画像解析等の機能を利用するために使用されます。</span></li>
+      <li><span class="clause-num">3.</span><span>有料オプションの内容、価格、購入条件、決済方法、返金条件等は、App Store 上の表示、Apple の定める規約、および本アプリ内の表示に従います。</span></li>
+      <li><span class="clause-num">4.</span><span>ユーザーが購入したクレジットは、本アプリ内でのみ利用できます。</span></li>
+      <li><span class="clause-num">5.</span><span>クレジットは、現金への換金、払い戻し、第三者への譲渡、交換はできません。ただし、法令または Apple の定めるルールにより認められる場合を除きます。</span></li>
+      <li><span class="clause-num">6.</span><span>クレジットの消費単位、残高、有効期限、付与条件等は、本アプリ内の表示に従います。</span></li>
+      <li><span class="clause-num">7.</span><span>通信障害、AI 解析エラー、システム障害等により解析が正常に完了しなかった場合、当方は合理的な範囲でクレジットの返却その他の対応を行うことがあります。</span></li>
+      <li><span class="clause-num">8.</span><span>無料クレジットの重複取得、不正取得、濫用が確認された場合、当方は当該クレジットの取消し、アカウント制限その他必要な措置を行うことがあります。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第5条 -->
+  <section id="art5">
+    <div class="section-label">第5条</div>
+    <h2>禁止事項</h2>
+    <p>ユーザーは、本アプリの利用にあたり、以下の行為をしてはなりません。</p>
+    <ul class="kana-list">
+      <li><span class="kn">（1）</span><span>法令または公序良俗に違反する行為</span></li>
+      <li><span class="kn">（2）</span><span>当方または第三者の著作権、商標権、プライバシー権、名誉、信用その他の権利または利益を侵害する行為</span></li>
+      <li><span class="kn">（3）</span><span>本アプリまたは関連システムへの不正アクセス、改ざん、過度な負荷をかける行為</span></li>
+      <li><span class="kn">（4）</span><span>リバースエンジニアリング、逆コンパイル、逆アセンブルその他本アプリの解析行為</span></li>
+      <li><span class="kn">（5）</span><span>自動化ツール、Bot、スクリプト等を用いた大量利用、不正利用、クレジットや無料枠の濫用</span></li>
+      <li><span class="kn">（6）</span><span>他人の同意なく、個人情報、機密情報、プライベートな会話内容等を含む画像を解析させる行為</span></li>
+      <li><span class="kn">（7）</span><span>違法行為、権利侵害、詐欺、迷惑行為、嫌がらせ等を目的として本アプリを利用する行為</span></li>
+      <li><span class="kn">（8）</span><span>本アプリの運営を妨害する行為</span></li>
+      <li><span class="kn">（9）</span><span>その他、当方が不適切と判断する行為</span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第6条 -->
+  <section id="art6">
+    <div class="section-label">第6条</div>
+    <h2>画像解析・外部 AI サービス</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリでは、スクリーンショット等の画像を解析するため、当方が利用する外部 AI サービスに画像データが送信される場合があります。</span></li>
+      <li><span class="clause-num">2.</span><span>画像には、ユーザー本人または第三者の個人情報、会話内容、予定、タスク、人物名、場所、日時等が含まれる場合があります。</span></li>
+      <li><span class="clause-num">3.</span><span>ユーザーは、不要な個人情報や機密情報を含む画像について、事前にトリミング、加工、除外等を行った上で利用するものとします。</span></li>
+      <li><span class="clause-num">4.</span><span>画像データおよび解析結果の取り扱いの詳細は、当方が別途定めるプライバシーポリシーに従います。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第7条 -->
+  <section id="art7">
+    <div class="section-label">第7条</div>
+    <h2>カレンダー連携</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリは、ユーザーの操作に基づき、解析結果から抽出された予定をカレンダーに追加する機能を提供する場合があります。</span></li>
+      <li><span class="clause-num">2.</span><span>カレンダーへの追加は、ユーザーの明示的な操作および端末上の権限許可に基づいて行われます。</span></li>
+      <li><span class="clause-num">3.</span><span>当方は、カレンダーに追加された予定の正確性、通知、同期、表示内容、他サービスとの連携結果について保証しません。</span></li>
+      <li><span class="clause-num">4.</span><span>ユーザーは、カレンダーに追加する前に、日時、タイトル、内容、場所等を必ず確認するものとします。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第8条 -->
+  <section id="art8">
+    <div class="section-label">第8条</div>
+    <h2>ユーザーが送信する情報</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>ユーザーは、本アプリに送信または入力する情報について、適法に利用する権限を有していることを保証するものとします。</span></li>
+      <li><span class="clause-num">2.</span><span>ユーザーが本アプリに送信または入力した情報に起因して第三者との間で紛争が生じた場合、ユーザーは自己の責任と費用でこれを解決するものとします。</span></li>
+      <li><span class="clause-num">3.</span><span>当方は、サービス提供、機能改善、不正利用防止、障害調査、利用状況の分析のために必要な範囲で、ユーザーが送信した情報および解析結果を取り扱うことがあります。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第9条 -->
+  <section id="art9">
+    <div class="section-label">第9条</div>
+    <h2>知的財産権</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリ、本アプリに含まれるプログラム、デザイン、ロゴ、テキスト、画像、その他一切のコンテンツに関する著作権、商標権その他の知的財産権は、当方または正当な権利者に帰属します。</span></li>
+      <li><span class="clause-num">2.</span><span>ユーザーは、本アプリを、本規約に従い個人的かつ非独占的に利用することができます。</span></li>
+      <li><span class="clause-num">3.</span><span>ユーザーが本アプリに入力、送信、共有したデータに関する権利は、ユーザーまたは正当な権利者に帰属します。ただし、当方は、本アプリの提供、保守、改善、不正利用防止、障害調査のために必要な範囲で当該データを利用できるものとします。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第10条 -->
+  <section id="art10">
+    <div class="section-label">第10条</div>
+    <h2>サービスの変更・停止・終了</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>当方は、ユーザーへの事前通知なく、本アプリの全部または一部の内容を変更、追加、停止、終了することができます。</span></li>
+      <li>
+        <span class="clause-num">2.</span>
+        <span>当方は、以下の場合、本アプリの提供を一時停止または終了することがあります。
+          <ul class="kana-list" style="margin-top:10px;">
+            <li><span class="kn">（1）</span><span>システム保守、点検、更新を行う場合</span></li>
+            <li><span class="kn">（2）</span><span>外部サービス、AI API、Firebase、Apple その他第三者サービスに障害または仕様変更が発生した場合</span></li>
+            <li><span class="kn">（3）</span><span>通信回線、サーバー、クラウドサービス等に障害が発生した場合</span></li>
+            <li><span class="kn">（4）</span><span>天災地変、停電、法令改正、行政指導その他不可抗力が発生した場合</span></li>
+            <li><span class="kn">（5）</span><span>その他、当方が必要と判断した場合</span></li>
+          </ul>
+        </span>
+      </li>
+      <li><span class="clause-num">3.</span><span>当方は、本条に基づく変更、停止、終了によりユーザーに生じた損害について、当方の故意または重過失による場合を除き、責任を負いません。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第11条 -->
+  <section id="art11">
+    <div class="section-label">第11条</div>
+    <h2>利用制限・アカウント停止</h2>
+    <p>当方は、ユーザーが以下のいずれかに該当すると判断した場合、事前通知なく、本アプリの利用制限、アカウント停止、クレジット取消し、その他必要な措置を行うことがあります。</p>
+    <ul class="kana-list">
+      <li><span class="kn">（1）</span><span>本規約に違反した場合</span></li>
+      <li><span class="kn">（2）</span><span>不正利用、濫用、過度な負荷をかける利用が確認された場合</span></li>
+      <li><span class="kn">（3）</span><span>登録情報または利用情報に虚偽、不正確、不適切な内容が含まれる場合</span></li>
+      <li><span class="kn">（4）</span><span>第三者の権利を侵害するおそれがある場合</span></li>
+      <li><span class="kn">（5）</span><span>その他、当方が本アプリの利用継続を不適切と判断した場合</span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第12条 -->
+  <section id="art12">
+    <div class="section-label">第12条</div>
+    <h2>免責</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリは「現状有姿」で提供されます。</span></li>
+      <li><span class="clause-num">2.</span><span>当方は、本アプリについて、正確性、完全性、有用性、信頼性、継続性、特定目的への適合性、エラーや不具合がないことを保証しません。</span></li>
+      <li><span class="clause-num">3.</span><span>当方は、解析結果、カレンダー登録内容、ToDo 内容、通知、同期、第三者サービスとの連携結果について保証しません。</span></li>
+      <li><span class="clause-num">4.</span><span>当方は、ユーザーが本アプリを利用したこと、または利用できなかったことにより生じた損害について、当方の故意または重過失による場合を除き、責任を負いません。</span></li>
+      <li><span class="clause-num">5.</span><span>本規約の免責規定は、消費者契約法その他の強行法規により免責が認められない範囲には適用されません。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第13条 -->
+  <section id="art13">
+    <div class="section-label">第13条</div>
+    <h2>損害賠償</h2>
+    <p>ユーザーが本規約に違反し、または本アプリの利用に関連して当方または第三者に損害を与えた場合、ユーザーは当該損害を賠償する責任を負うものとします。</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第14条 -->
+  <section id="art14">
+    <div class="section-label">第14条</div>
+    <h2>プライバシー</h2>
+    <p>当方は、ユーザー情報、画像データ、解析結果、利用ログ等を、別途定めるプライバシーポリシーに従い取り扱います。</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第15条 -->
+  <section id="art15">
+    <div class="section-label">第15条</div>
+    <h2>規約の変更</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>当方は、必要に応じて本規約を変更することができます。</span></li>
+      <li><span class="clause-num">2.</span><span>本規約を変更する場合、当方は、本アプリ内での表示、ウェブサイトへの掲載その他適切な方法によりユーザーに周知します。</span></li>
+      <li><span class="clause-num">3.</span><span>変更後の本規約は、当方が別途定める場合を除き、本アプリ内またはウェブサイト上に掲載された時点で効力を生じます。</span></li>
+      <li><span class="clause-num">4.</span><span>ユーザーが変更後も本アプリを利用した場合、変更後の本規約に同意したものとみなします。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第16条 -->
+  <section id="art16">
+    <div class="section-label">第16条</div>
+    <h2>準拠法・管轄</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本規約は日本法に準拠し、解釈されます。</span></li>
+      <li><span class="clause-num">2.</span><span>本アプリまたは本規約に関して紛争が生じた場合、当方の所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。</span></li>
+      <li><span class="clause-num">3.</span><span>ただし、消費者契約法その他の強行法規により異なる定めが認められる場合は、その限りではありません。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第17条 -->
+  <section id="art17">
+    <div class="section-label">第17条</div>
+    <h2>お問い合わせ</h2>
+    <p>本規約に関するお問い合わせは、以下までご連絡ください。</p>
+    <div class="contact-box">
+      <p><strong>運営者：</strong>山本憲吾</p>
+      <p><strong>メール：</strong><a href="mailto:yamayamak40@yahoo.co.jp">yamayamak40@yahoo.co.jp</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 TALKtoDO. All rights reserved. &nbsp;·&nbsp;
+  <a href="talkdo-privacy-policy.html">プライバシーポリシー</a> &nbsp;·&nbsp;
+  <a href="talkdo-support.html">サポート</a>
+</footer>
+
+</body>
+</html>
