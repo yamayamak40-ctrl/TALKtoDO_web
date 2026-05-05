@@ -33,7 +33,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Header */
+  /* ── Header ── */
   header {
     position: relative;
     overflow: hidden;
@@ -42,14 +42,12 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .header-arrow {
+  .arrow-svg {
     position: absolute;
+    right: -40px;
     top: 50%;
-    left: -20px;
     transform: translateY(-50%);
-    width: 480px;
-    height: 120px;
-    opacity: 0.55;
+    opacity: 0.35;
     pointer-events: none;
   }
 
@@ -62,31 +60,9 @@
     gap: 24px;
   }
 
-  .logo-mark {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .logo-talk {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 900;
-    font-size: 28px;
-    letter-spacing: -0.5px;
-    color: var(--ink);
-  }
-
-  .logo-do {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 900;
-    font-size: 28px;
-    letter-spacing: -0.5px;
-    color: var(--ink);
-    text-align: right;
-  }
-
-  .header-text { flex: 1; }
+  .logo-mark { flex-shrink: 0; display: flex; flex-direction: column; line-height: 1; }
+  .logo-talk { font-family: 'Roboto Slab', serif; font-weight: 900; font-size: 28px; letter-spacing: -0.5px; color: var(--ink); }
+  .logo-do   { font-family: 'Roboto Slab', serif; font-weight: 900; font-size: 28px; letter-spacing: -0.5px; color: var(--ink); text-align: right; }
 
   .header-text h1 {
     font-family: 'Roboto Slab', serif;
@@ -97,34 +73,59 @@
     margin-bottom: 6px;
   }
 
-  .header-meta {
-    font-size: 13px;
+  .header-meta { font-size: 13px; color: var(--muted); }
+
+  /* ── TOC ── */
+  .toc-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-title {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
     color: var(--muted);
+    margin-bottom: 12px;
   }
 
-  /* Arrow graphic */
-  .arrow-svg {
-    position: absolute;
-    right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.35;
-    pointer-events: none;
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px 16px;
   }
 
-  /* Main layout */
+  .toc-grid a {
+    font-size: 13px;
+    color: #1a6dbf;
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .toc-grid a:hover { text-decoration: underline; }
+
+  .toc-grid a span.toc-num {
+    font-family: 'Roboto Slab', serif;
+    font-size: 11px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  /* ── Main ── */
   main {
     max-width: 800px;
     margin: 0 auto;
     padding: 56px 40px 100px;
   }
 
-  /* Section */
-  section {
-    margin-bottom: 52px;
-  }
+  section { margin-bottom: 52px; }
 
-  .section-num {
+  .section-label {
     display: inline-block;
     font-family: 'Roboto Slab', serif;
     font-weight: 700;
@@ -146,26 +147,46 @@
     letter-spacing: -0.2px;
   }
 
-  section p {
-    color: var(--ink-light);
-    margin-bottom: 12px;
-  }
+  section p { color: var(--ink-light); margin-bottom: 12px; }
+  section p:last-child { margin-bottom: 0; }
 
-  /* Sub-section headings */
   .sub-label {
     font-size: 13px;
     font-weight: 500;
     color: var(--muted);
-    text-transform: none;
     margin-top: 20px;
     margin-bottom: 8px;
   }
 
-  /* Lists */
-  ul.dot-list {
+  /* Numbered clause list */
+  .clause-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
+
+  .clause-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 14.5px;
+    color: var(--ink-light);
+    line-height: 1.75;
+  }
+
+  .clause-num {
+    flex-shrink: 0;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 3px;
+    min-width: 20px;
+  }
+
+  /* Dot list */
+  ul.dot-list { list-style: none; padding: 0; }
 
   ul.dot-list li {
     position: relative;
@@ -173,47 +194,18 @@
     color: var(--ink-light);
     margin-bottom: 6px;
     font-size: 14.5px;
+    line-height: 1.75;
   }
 
   ul.dot-list li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 11px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
     background: linear-gradient(135deg, #7de8c0, #7ab8e8);
-  }
-
-  /* Info card */
-  .info-card {
-    background: var(--accent-bg);
-    border-left: 3px solid var(--blue-mid);
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px;
-    margin: 16px 0;
-  }
-
-  .info-card p {
-    margin-bottom: 0;
-    font-size: 14px;
-    color: var(--ink-light);
-  }
-
-  /* Warning card */
-  .warn-card {
-    background: #fffbf0;
-    border-left: 3px solid #e0a020;
-    border-radius: 0 8px 8px 0;
-    padding: 16px 20px;
-    margin: 16px 0;
-  }
-
-  .warn-card p {
-    margin-bottom: 0;
-    font-size: 14px;
-    color: #5a4010;
   }
 
   /* Services grid */
@@ -228,28 +220,43 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 12px 16px;
+    padding: 14px 16px;
   }
 
   .service-chip .service-name {
     font-weight: 500;
     font-size: 13.5px;
     color: var(--ink);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   }
 
   .service-chip .service-desc {
     font-size: 12px;
     color: var(--muted);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
-  /* Divider */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, var(--mint), var(--sky), transparent);
-    margin: 0 0 52px;
-    border: none;
+  /* Warn / Info cards */
+  .warn-card {
+    background: #fffbf0;
+    border-left: 3px solid #e0a020;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: #5a4010;
+    line-height: 1.7;
+  }
+
+  .info-card {
+    background: var(--accent-bg);
+    border-left: 3px solid var(--blue-mid);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.7;
   }
 
   /* Contact */
@@ -260,9 +267,17 @@
     padding: 28px 32px;
   }
 
-  .contact-box p { margin-bottom: 6px; color: var(--ink-light); font-size: 14.5px; }
+  .contact-box p { margin-bottom: 6px; font-size: 14.5px; color: var(--ink-light); }
   .contact-box a { color: #1a6dbf; text-decoration: none; }
   .contact-box a:hover { text-decoration: underline; }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--mint), var(--sky), transparent);
+    margin: 0 0 52px;
+    border: none;
+  }
 
   /* Footer */
   footer {
@@ -273,21 +288,26 @@
     border-top: 1px solid var(--border);
   }
 
+  footer a { color: #1a6dbf; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
   /* Responsive */
   @media (max-width: 600px) {
     header { padding: 40px 24px 36px; }
+    .toc-wrap { padding: 24px; }
     main { padding: 40px 24px 80px; }
     .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
     .logo-talk, .logo-do { font-size: 22px; }
     .header-text h1 { font-size: 21px; }
     .arrow-svg { display: none; }
+    .toc-grid { grid-template-columns: 1fr 1fr; }
+    .contact-box { padding: 20px; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <!-- Background arrow decoration matching app icon -->
   <svg class="arrow-svg" width="420" height="110" viewBox="0 0 420 110" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="arrowGrad" x1="0" y1="0" x2="420" y2="0" gradientUnits="userSpaceOnUse">
@@ -310,159 +330,301 @@
   </div>
 </header>
 
+<!-- 目次 -->
+<nav class="toc-wrap" aria-label="目次">
+  <p class="toc-title">目次</p>
+  <div class="toc-grid">
+    <a href="#art1"><span class="toc-num">第1条</span>取得する情報</a>
+    <a href="#art2"><span class="toc-num">第2条</span>利用目的</a>
+    <a href="#art3"><span class="toc-num">第3条</span>スクリーンショット画像の取り扱い</a>
+    <a href="#art4"><span class="toc-num">第4条</span>解析結果・ToDo・履歴の保存</a>
+    <a href="#art5"><span class="toc-num">第5条</span>第三者サービスの利用</a>
+    <a href="#art6"><span class="toc-num">第6条</span>Sign in with Apple について</a>
+    <a href="#art7"><span class="toc-num">第7条</span>カレンダー連携について</a>
+    <a href="#art8"><span class="toc-num">第8条</span>課金・クレジット情報について</a>
+    <a href="#art9"><span class="toc-num">第9条</span>不正利用防止</a>
+    <a href="#art10"><span class="toc-num">第10条</span>情報の保存期間</a>
+    <a href="#art11"><span class="toc-num">第11条</span>アカウント削除</a>
+    <a href="#art12"><span class="toc-num">第12条</span>ユーザーの管理と注意事項</a>
+    <a href="#art13"><span class="toc-num">第13条</span>安全管理</a>
+    <a href="#art14"><span class="toc-num">第14条</span>子どもの利用について</a>
+    <a href="#art15"><span class="toc-num">第15条</span>プライバシーポリシーの変更</a>
+    <a href="#art16"><span class="toc-num">第16条</span>お問い合わせ</a>
+  </div>
+</nav>
+
 <main>
 
-  <!-- 1 -->
   <section>
-    <div class="section-num">01</div>
-    <h2>取得する情報</h2>
-    <p>本アプリは、以下の情報を取得・送信する場合があります。</p>
+    <p>TALKtoDO（以下「本アプリ」）は、ユーザーのプライバシーを尊重し、本アプリにおけるユーザー情報の取り扱いについて、以下のとおり定めます。</p>
+  </section>
 
-    <p class="sub-label">（1）ユーザーが提供する情報</p>
+  <!-- 第1条 -->
+  <section id="art1">
+    <div class="section-label">第1条</div>
+    <h2>取得する情報</h2>
+    <p>本アプリは、サービス提供のため、以下の情報を取得、送信、保存する場合があります。</p>
+
+    <p class="sub-label">1. ユーザーが提供する情報</p>
     <ul class="dot-list">
       <li>ユーザーが選択または共有したスクリーンショット画像</li>
-      <li>画像に含まれるテキスト、予定、タスク、人物名、場所、日時などの情報</li>
-      <li>解析結果として抽出された予定・ToDo情報</li>
+      <li>画像に含まれるテキスト、予定、タスク、人物名、場所、日時、会話内容等</li>
+      <li>解析結果として抽出された予定、ToDo、タスク、メモ等の情報</li>
+      <li>ユーザーが手入力で作成した ToDo、メモ、期限等の情報</li>
     </ul>
 
-    <p class="sub-label">（2）アプリ利用に伴い取得される情報</p>
+    <p class="sub-label">2. アカウントおよび識別情報</p>
     <ul class="dot-list">
-      <li>アプリの表示言語およびロケール情報</li>
-      <li>Firebase 匿名認証 ID</li>
+      <li>Sign in with Apple により提供される認証情報</li>
+      <li>Firebase Authentication により生成されるユーザー ID</li>
       <li>端末ごとのインストール ID</li>
+      <li>アプリの表示言語、ロケール情報</li>
     </ul>
 
-    <p class="sub-label">（3）課金・利用状況に関する情報</p>
+    <p class="sub-label">3. 課金およびクレジットに関する情報</p>
     <ul class="dot-list">
       <li>クレジット残高</li>
-      <li>購入商品 ID、取引 ID</li>
-      <li>解析枚数、処理日時</li>
+      <li>購入商品 ID</li>
+      <li>Apple App Store の取引 ID</li>
+      <li>購入日時、購入状態、復元情報</li>
+      <li>クレジットの付与、消費、返却等の履歴</li>
+    </ul>
+
+    <p class="sub-label">4. 利用状況および運用ログ</p>
+    <ul class="dot-list">
+      <li>解析枚数</li>
+      <li>処理日時</li>
       <li>利用した AI プロバイダ</li>
-      <li>概算トークン数・コスト等の運用ログ</li>
+      <li>概算トークン数、概算コスト</li>
+      <li>処理時間、エラー情報、障害調査に必要なログ</li>
     </ul>
   </section>
 
   <hr class="divider">
 
-  <!-- 2 -->
-  <section>
-    <div class="section-num">02</div>
+  <!-- 第2条 -->
+  <section id="art2">
+    <div class="section-label">第2条</div>
     <h2>利用目的</h2>
-    <p>取得した情報は、以下の目的で利用されます。</p>
+    <p>本アプリは、取得した情報を以下の目的で利用します。</p>
     <ul class="dot-list">
-      <li>スクリーンショットの解析</li>
-      <li>予定および ToDo の抽出</li>
-      <li>カレンダー追加機能およびタスク管理機能の提供</li>
-      <li>クレジット管理および購入処理</li>
-      <li>不正利用の防止</li>
-      <li>障害調査およびサービス改善</li>
+      <li>スクリーンショット画像の解析</li>
+      <li>予定、ToDo、タスク、日時、場所等の抽出</li>
+      <li>カレンダー追加機能の提供</li>
+      <li>ToDo 管理機能の提供</li>
+      <li>クレジット残高の管理</li>
+      <li>App Store 課金および購入処理の確認</li>
+      <li>購入済みクレジットの復元</li>
+      <li>無料クレジットの重複取得防止</li>
+      <li>不正利用、濫用、過度な利用の防止</li>
+      <li>障害調査、品質改善、サービス改善</li>
+      <li>ユーザーからのお問い合わせ対応</li>
     </ul>
   </section>
 
   <hr class="divider">
 
-  <!-- 3 -->
-  <section>
-    <div class="section-num">03</div>
-    <h2>情報の保存および管理</h2>
-    <ul class="dot-list">
-      <li>解析結果、履歴、ToDo、クレジット情報は Firebase Firestore 上に保存されます</li>
-      <li>スクリーンショット画像は解析のため外部 AI API へ送信されますが、本アプリのサーバー上には保存されません</li>
-      <li>共有シート経由の画像は端末内または App Group 領域に一時保存され、解析後に削除されます</li>
-    </ul>
+  <!-- 第3条 -->
+  <section id="art3">
+    <div class="section-label">第3条</div>
+    <h2>スクリーンショット画像の取り扱い</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>ユーザーが選択または共有したスクリーンショット画像は、解析のために外部 AI サービスへ送信される場合があります。</span></li>
+      <li><span class="clause-num">2.</span><span>スクリーンショット画像は、TALKtoDO のサーバー上には永続的に保存されません。</span></li>
+      <li><span class="clause-num">3.</span><span>共有シート経由で受け取った画像は、端末内または App Group 領域に一時的に保存される場合があります。</span></li>
+      <li><span class="clause-num">4.</span><span>一時保存された画像は、解析完了後または不要になった時点で削除またはクリアされます。</span></li>
+      <li><span class="clause-num">5.</span><span>ユーザーは、スクリーンショット内に個人情報、機密情報、第三者の情報が含まれる場合、その内容も解析対象として外部 AI サービスに送信される可能性があることを理解した上で利用するものとします。</span></li>
+      <li><span class="clause-num">6.</span><span>不要な個人情報や機密情報が含まれる場合は、事前にトリミング、加工、除外した上で利用することを推奨します。</span></li>
+    </ol>
+    <div class="warn-card">
+      機密情報や第三者の個人情報を含む画像を共有する際は、事前のトリミングを推奨します。共有された画像は外部 AI サービスに送信される場合があります。
+    </div>
   </section>
 
   <hr class="divider">
 
-  <!-- 4 -->
-  <section>
-    <div class="section-num">04</div>
+  <!-- 第4条 -->
+  <section id="art4">
+    <div class="section-label">第4条</div>
+    <h2>解析結果・ToDo・履歴の保存</h2>
+    <p>本アプリは、以下の情報を Firebase Firestore に保存します。</p>
+    <ul class="dot-list">
+      <li>解析結果・予定候補</li>
+      <li>ToDo 情報・手入力された ToDo</li>
+      <li>解析履歴</li>
+      <li>クレジット残高・クレジット取引履歴</li>
+      <li>購入商品 ID、取引 ID</li>
+      <li>利用状況および運用ログ</li>
+    </ul>
+    <div class="info-card">
+      スクリーンショット画像そのものは、原則として Firestore には保存しません。
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第5条 -->
+  <section id="art5">
+    <div class="section-label">第5条</div>
     <h2>第三者サービスの利用</h2>
-    <p>本アプリは、以下の第三者サービスを利用します。必要な範囲で情報が送信される場合があります。</p>
-
+    <p>本アプリは、以下の第三者サービスを利用します。サービス提供に必要な範囲で情報が送信される場合があります。</p>
     <div class="services-grid">
       <div class="service-chip">
         <div class="service-name">Firebase / Google Cloud</div>
-        <div class="service-desc">認証、データベース、Cloud Functions、ログ管理</div>
+        <div class="service-desc">認証、データ保存、Cloud Functions、Firestore、運用ログ、不正利用防止、障害調査等</div>
       </div>
       <div class="service-chip">
         <div class="service-name">OpenAI</div>
-        <div class="service-desc">画像解析</div>
+        <div class="service-desc">スクリーンショット画像の解析、予定・ToDo 抽出等</div>
       </div>
       <div class="service-chip">
         <div class="service-name">Gemini / Google AI</div>
-        <div class="service-desc">画像解析に利用される場合があります</div>
+        <div class="service-desc">スクリーンショット画像の解析、予定・ToDo 抽出等（利用される場合があります）</div>
       </div>
       <div class="service-chip">
         <div class="service-name">Apple</div>
-        <div class="service-desc">App Store 決済、カレンダー連携、アプリ配信</div>
+        <div class="service-desc">Sign in with Apple、App Store 課金、購入復元、カレンダー連携、アプリ配信等</div>
       </div>
     </div>
   </section>
 
   <hr class="divider">
 
-  <!-- 5 -->
-  <section>
-    <div class="section-num">05</div>
-    <h2>個人情報および機密情報の取り扱い</h2>
-    <p>本アプリは、ユーザーが共有したスクリーンショットを解析するため、画像内に含まれる個人情報や機密情報も処理対象となる可能性があります。</p>
+  <!-- 第6条 -->
+  <section id="art6">
+    <div class="section-label">第6条</div>
+    <h2>Sign in with Apple について</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリでは、ユーザー認証のために Sign in with Apple を使用します。</span></li>
+      <li><span class="clause-num">2.</span><span>Sign in with Apple により提供される情報は、ユーザー識別、アカウント管理、購入情報の紐付け、データ復元等の目的で利用されます。</span></li>
+      <li><span class="clause-num">3.</span><span>ユーザーがメールアドレスを非公開にした場合、Apple が提供するプライベートリレー用メールアドレスが使用される場合があります。</span></li>
+      <li><span class="clause-num">4.</span><span>本アプリは、ユーザーが Apple ID で管理する情報を、Apple の定める範囲を超えて取得することはありません。</span></li>
+    </ol>
+  </section>
 
-    <div class="warn-card">
-      <p>・不要な個人情報や機密情報は事前にトリミングまたは除外してください<br>
-      ・共有された情報は解析のため外部 AI サービスに送信される場合があります</p>
+  <hr class="divider">
+
+  <!-- 第7条 -->
+  <section id="art7">
+    <div class="section-label">第7条</div>
+    <h2>カレンダー連携について</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリは、ユーザーの操作に基づき、解析結果から抽出された予定をカレンダーに追加する機能を提供します。</span></li>
+      <li><span class="clause-num">2.</span><span>カレンダーへの追加は、ユーザーの明示的な操作および端末上の権限許可に基づいて行われます。</span></li>
+      <li><span class="clause-num">3.</span><span>ユーザーの許可なく、カレンダーに予定を追加することはありません。</span></li>
+      <li><span class="clause-num">4.</span><span>カレンダーに追加される内容は、ユーザーが確認・編集した上で登録することを推奨します。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第8条 -->
+  <section id="art8">
+    <div class="section-label">第8条</div>
+    <h2>課金・クレジット情報について</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>本アプリでは、App Store のアプリ内課金によりクレジットを購入できる場合があります。</span></li>
+      <li><span class="clause-num">2.</span><span>購入されたクレジットは、スクリーンショット画像の解析に使用されます。</span></li>
+      <li><span class="clause-num">3.</span><span>本アプリは、購入確認、クレジット付与、購入復元、不正利用防止のため、購入商品 ID、取引 ID、購入日時、クレジット残高、クレジット履歴等を保存します。</span></li>
+      <li><span class="clause-num">4.</span><span>決済処理自体は Apple により行われ、当方がユーザーのクレジットカード情報等を取得することはありません。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第9条 -->
+  <section id="art9">
+    <div class="section-label">第9条</div>
+    <h2>不正利用防止</h2>
+    <p>本アプリは、無料クレジットの重複取得、不正な購入処理、過度な利用、システムへの不正アクセス等を防止するため、以下の情報を利用・保存する場合があります。</p>
+    <ul class="dot-list">
+      <li>Firebase Authentication のユーザー ID</li>
+      <li>Sign in with Apple に関連する識別情報</li>
+      <li>端末ごとのインストール ID</li>
+      <li>クレジット付与履歴・購入履歴</li>
+      <li>解析回数・利用状況ログ</li>
+    </ul>
+    <div class="info-card">
+      アカウント削除後であっても、不正な無料クレジット再取得や不正利用防止のため、個人を直接特定しない形式または復元困難な形式で、必要最小限の識別情報を保持する場合があります。
     </div>
   </section>
 
   <hr class="divider">
 
-  <!-- 6 -->
-  <section>
-    <div class="section-num">06</div>
-    <h2>カレンダー連携について</h2>
+  <!-- 第10条 -->
+  <section id="art10">
+    <div class="section-label">第10条</div>
+    <h2>情報の保存期間</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>解析結果、ToDo、クレジット情報、購入履歴等は、ユーザーが本アプリを利用するために必要な期間保存されます。</span></li>
+      <li><span class="clause-num">2.</span><span>ユーザーがアカウント削除を行った場合、当方は、法令上必要な情報、不正利用防止、購入履歴確認、障害調査等に必要な情報を除き、合理的な期間内にユーザー情報を削除または匿名化します。</span></li>
+      <li><span class="clause-num">3.</span><span>一時保存されたスクリーンショット画像は、解析完了後または不要になった時点で削除またはクリアされます。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第11条 -->
+  <section id="art11">
+    <div class="section-label">第11条</div>
+    <h2>アカウント削除</h2>
+    <ol class="clause-list">
+      <li><span class="clause-num">1.</span><span>ユーザーは、本アプリ内の手続により、アカウント削除を申し出ることができます。</span></li>
+      <li><span class="clause-num">2.</span><span>アカウント削除により、解析履歴、ToDo、クレジット残高等の利用データが削除される場合があります。</span></li>
+      <li><span class="clause-num">3.</span><span>購入履歴、不正利用防止、法令遵守、会計上必要な情報等については、必要な範囲で保持される場合があります。</span></li>
+      <li><span class="clause-num">4.</span><span>アカウント削除後も、Apple ID 側の購入履歴や App Store 上の取引情報は Apple の管理下に残る場合があります。</span></li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 第12条 -->
+  <section id="art12">
+    <div class="section-label">第12条</div>
+    <h2>ユーザーの管理と注意事項</h2>
+    <p>ユーザーは、本アプリの利用にあたり、以下に注意するものとします。</p>
     <ul class="dot-list">
-      <li>カレンダーへの予定追加は、ユーザーの操作および明示的な権限許可に基づいて行われます</li>
-      <li>ユーザーの許可なしに予定が追加されることはありません</li>
+      <li>第三者の個人情報や機密情報を含む画像を解析する場合は、必要に応じて事前に同意を取得してください。</li>
+      <li>不要な個人情報や機密情報は、事前にトリミングまたは加工してください。</li>
+      <li>解析結果は AI により生成されるため、正確性を保証するものではありません。</li>
+      <li>カレンダー登録や ToDo 保存を行う前に、内容を必ず確認してください。</li>
     </ul>
   </section>
 
   <hr class="divider">
 
-  <!-- 7 -->
-  <section>
-    <div class="section-num">07</div>
-    <h2>ユーザー識別について</h2>
-    <ul class="dot-list">
-      <li>本アプリはアカウント登録を必要としません</li>
-      <li>Firebase 匿名認証 ID および端末 ID によりユーザーを識別します</li>
-    </ul>
+  <!-- 第13条 -->
+  <section id="art13">
+    <div class="section-label">第13条</div>
+    <h2>安全管理</h2>
+    <p>当方は、取得した情報について、漏えい、滅失、改ざん、不正アクセス等を防止するため、合理的な安全管理措置を講じます。ただし、インターネット通信、外部サービス、端末環境等に起因するリスクを完全に排除することはできません。</p>
   </section>
 
   <hr class="divider">
 
-  <!-- 8 -->
-  <section>
-    <div class="section-num">08</div>
-    <h2>課金およびクレジット</h2>
-    <p>購入されたクレジットは、画像解析機能の利用に使用されます。</p>
+  <!-- 第14条 -->
+  <section id="art14">
+    <div class="section-label">第14条</div>
+    <h2>子どもの利用について</h2>
+    <p>本アプリは、主として一般ユーザー向けに提供されるものであり、13 歳未満の児童を主な対象としていません。未成年者が本アプリを利用する場合は、保護者の同意を得た上で利用してください。</p>
   </section>
 
   <hr class="divider">
 
-  <!-- 9 -->
-  <section>
-    <div class="section-num">09</div>
-    <h2>改訂</h2>
-    <p>本ポリシーは必要に応じて変更される場合があります。重要な変更がある場合は、アプリ内または適切な方法で通知します。</p>
+  <!-- 第15条 -->
+  <section id="art15">
+    <div class="section-label">第15条</div>
+    <h2>プライバシーポリシーの変更</h2>
+    <p>当方は、必要に応じて本プライバシーポリシーを変更することがあります。重要な変更がある場合は、本アプリ内での表示、ウェブサイトへの掲載その他適切な方法により通知します。変更後のプライバシーポリシーは、本アプリ内またはウェブサイト上に掲載された時点で効力を生じるものとします。</p>
   </section>
 
   <hr class="divider">
 
-  <!-- 10 -->
-  <section>
-    <div class="section-num">10</div>
+  <!-- 第16条 -->
+  <section id="art16">
+    <div class="section-label">第16条</div>
     <h2>お問い合わせ</h2>
-    <p>本ポリシーに関するご質問は、以下までご連絡ください。</p>
+    <p>本プライバシーポリシーに関するお問い合わせは、以下までご連絡ください。</p>
     <div class="contact-box">
       <p><strong>運営者：</strong>山本憲吾</p>
       <p><strong>メール：</strong><a href="mailto:yamayamak40@yahoo.co.jp">yamayamak40@yahoo.co.jp</a></p>
@@ -472,7 +634,9 @@
 </main>
 
 <footer>
-  &copy; 2026 TALKtoDO. All rights reserved.
+  &copy; 2026 TALKtoDO. All rights reserved. &nbsp;·&nbsp;
+  <a href="talkdo-terms.html">利用規約</a> &nbsp;·&nbsp;
+  <a href="talkdo-support.html">サポート</a>
 </footer>
 
 </body>
